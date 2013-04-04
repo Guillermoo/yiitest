@@ -32,10 +32,10 @@ class SiteController extends Controller
 		$this->render('index');
 	}
     
-    public function actionTwoColumns() {
+    public function actionAdminBlog() {
         $this->layout = 'column2';
         
-        $this->render('twoColumns');
+        $this->render('adminBlog');
     }
 
 	/**

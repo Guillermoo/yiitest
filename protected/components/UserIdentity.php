@@ -45,6 +45,8 @@ class UserIdentity extends CUserIdentity
         }
         else
         {
+        	//Here we can store whatever we want:
+        	//$this->setState('email', $record->email);
             $this->_id=$record->id;
             Yii::app()->theme = 'bootstrap-admin';
             $this->errorCode=self::ERROR_NONE;

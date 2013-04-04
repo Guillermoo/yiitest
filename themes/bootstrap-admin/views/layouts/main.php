@@ -38,7 +38,7 @@
                             'items' => array(
                                 array('label' => 'Home', 'url' => array('/site/index')),
                                 array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-                                array('label' => 'Two Columns', 'url' => array('/site/twoColumns')),
+                                array('label' => 'Admin blog', 'url' => array('/site/adminBlog')),
                                 array('label' => 'Contact', 'url' => array('/site/contact')),
                             ),
                         ),
@@ -76,6 +76,7 @@
                 </div>
             <?php endif ?>
             <div id="content">
+                <?//Renders the views in the layout?>
                 <div class="container-fluid">
                     <?php echo $content; ?>
                 </div>

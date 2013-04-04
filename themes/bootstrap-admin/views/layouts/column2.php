@@ -1,7 +1,6 @@
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="row-fluid">
     <div id="sidebar" class="span3">
-
         <div class="well" style="padding: 8px 0;">
             <?php
             $this->widget('bootstrap.widgets.BootMenu', array(
