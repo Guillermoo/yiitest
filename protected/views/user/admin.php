@@ -51,5 +51,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		array(
 			'class'=>'bootstrap.widgets.BootButtonColumn',
 		),
+		/*array(
+			'class'=>'CLinkColumn',
+			'header'=>'Email',
+			'imageUrl'=>Yii::app()->baseUrl.'/images/email.png',
+			'labelExpression'=>'$data->email',
+			'urlExpression'=>'"mailto://".$data->email',
+			'htmlOptions'=>array('style'=>'text-align:center'),
+			),*/
 	),
+
 )); ?>

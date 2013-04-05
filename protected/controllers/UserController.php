@@ -94,6 +94,7 @@ class UserController extends Controller
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save())
+				Yii::app()->user->setFlash('success', '<strong>Well done!</strong> You successfully update user information.');
 				$this->redirect(array('view','id'=>$model->id));
 		}
 

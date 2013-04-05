@@ -78,6 +78,7 @@
             <div id="content">
                 <?//Renders the views in the layout?>
                 <div class="container-fluid">
+                    <?php $this->widget('bootstrap.widgets.BootAlert'); ?>
                     <?php echo $content; ?>
                 </div>
             </div>
@@ -91,3 +92,11 @@
         </div><!-- footer -->
     </body>
 </html>
+
+<!--<?php 
+    /*Yii::app()->clientScript->registerScript(
+        'myHideEffect',
+        '$(".info").animate({opacity:1.0},10000).slideUp("slow");',
+        CClientScript::POS_READY
+    );*/
+?>-->

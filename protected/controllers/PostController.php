@@ -68,6 +68,10 @@ class PostController extends Controller
 	public function actionCreate()
 	{
 		$model=new Post;
+		//$model=new Post('scenary1');
+		//$model->setScenario('scenary1');
+		//if ($model->getScenario() === 'scenary1');
+
 
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
@@ -75,6 +79,7 @@ class PostController extends Controller
 		if(isset($_POST['Post']))
 		{
 			$model->attributes=$_POST['Post'];
+			// if ($model->validate)....
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -99,8 +104,12 @@ class PostController extends Controller
 		if(isset($_POST['Post']))
 		{
 			$model->attributes=$_POST['Post'];
-			if($model->save())
+			if($model->save()){
+				//Yii::app()->setFlash('successs','Todo bien');
+				Yii::app()->post->setFlash('successs', '<strong>Well done!</strong> You successfully read this important alert message.');
 				$this->redirect(array('view','id'=>$model->id));
+			}
+				Yii::app()->post->setFlash('error', '<strong>Oh snap!</strong> Change a few things up and try submitting again.');
 		}
 
 		$this->render('update',array(

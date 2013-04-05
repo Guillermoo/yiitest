@@ -1,9 +1,15 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.BootActiveForm',array(
 	'id'=>'post-form',
 	'enableAjaxValidation'=>true,
+	/*'enableClientValidation'=>false,
+	'clientOptions'=>array('validateOnSubmit'=>true,
+		)*/
 )); ?>
 
 	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
+
+	<?php $this->widget('bootstrap.widgets.BootAlert'); ?>
+	<?php //echo Yii::app()->post->setFlash('success', '<strong>Well done!</strong> You successfully read this important alert message.');?>
 
 	<?php echo $form->errorSummary($model); ?>
 

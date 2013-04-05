@@ -965,7 +965,7 @@ select:focus:required:invalid:focus {
 }
 .help-block,
 .help-inline {
-  color: #555555;
+  color: #red;
 }
 .help-block {
   display: block;

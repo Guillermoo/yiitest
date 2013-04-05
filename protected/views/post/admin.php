@@ -41,6 +41,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'id'=>'post-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+	'type'=>'condensed',
 	//'ajaxUpdate'=>'false',
 	'columns'=>array(
 		//'id',
@@ -62,7 +63,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		/*'update_time',*/
 		/*array('name'=>'user_search','value'=>'$data->user->username'),*/
 		array(
+			'header' => 'Options',
 			'class'=>'bootstrap.widgets.BootButtonColumn',
+			//'htmlOptions'=>array('style'=>'width: 60px'),
 		),
+		
 	),
 )); ?>

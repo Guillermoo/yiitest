@@ -52,16 +52,31 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, content, status, author_id', 'required'),
+			array('title, content, status, author_id', 'required'/*,'message'=>'Field required.'*/),
 			array('status, author_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>128),
-			array('title','required'), //By ajax
 			array('tags', 'safe'),
+			//This commented validations are examples(Don't delete!!!). In Ajax.
+			//http://www.yiiframework.com/wiki/56/
+			//array('status','myValidation'), //Combined validations
+			//array('title','unique','attributeName'=>'title','className'=>'Post'[we can reffer any model],'allowEmpty'=>'false'), //Validation for FK id
+			//array('title','exist','attributeName'=>'title','className'=>'Post','allowEmpty'=>'false'), //Only allow existed values(oposite to unique)
+			//array('title','required','message'=>'This message is for scenary1, {attribute}','on'=>'scenary1'), //We have to change the scenary in Controller.
+			//array('title','compare','compareAttribute'=>'title2(name of other value)','allowEmpty'=>'false'), //Compare two attributes.
+			//array('title','compare','compareValue'=>'Title 1(for example)','allowEmpty'=>'false'), //Compare two attributes.
+			//array('title','compare','match'=>'Regular expression','allowEmpty'=>'false'), //Compare two attributes.
+
+			//array('email','email'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, content, tags, status,author,user_search', 'safe', 'on'=>'search'),
+			array('id, title, content, tags, status,author_id,user_search', 'safe', 'on'=>'search'),
 		);
 	}
+
+	/*public function myValidation($attribute,$params){
+		if($this->status=='1' && $this->author_id=='4')
+			$this->addError('status','Sorry admin, you can {$attribute}.');
+	}*/
 
 	/**
 	 * @return array relational rules.

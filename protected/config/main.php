@@ -1,5 +1,19 @@
 <?php
 
+
+/*
+
+    DEBUG!!!!!!
+    if(isset($_POST['nbmodel'])){
+        echo '<pre>';
+        print_r($_POST['nbmodel']));
+        echo '</pre>';
+    }
+    Yii::app().>end();
+
+*/
+
+
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 // This is the main Web application configuration. Any writable
@@ -64,6 +78,7 @@ return array(
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
+            //'enableProfiling'=>true, //To show SQL query
         ),
         'errorHandler' => array(
             // use 'site/error' action to display errors
@@ -76,12 +91,11 @@ return array(
                     'class' => 'CFileLogRoute',
                     'levels' => 'error, warning',
                 ),
-            // uncomment the following to show log messages on web pages
-            /*
-              array(
-              'class'=>'CWebLogRoute',
-              ),
-             */
+                // uncomment the following to show log messages on web pages
+                array(
+                    'class'=>'CWebLogRoute',
+                ),
+             
             ),
         ),
     ),
