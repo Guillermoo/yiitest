@@ -12,6 +12,8 @@
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
         <link media="screen" rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/main.css"  />
+        <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-responsive.min.css">
 
     </head>
     <!-- To show debug info -->

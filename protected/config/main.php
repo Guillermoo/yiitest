@@ -51,7 +51,7 @@ return array(
     'components' => array(
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',
-            'coreCss' => true,
+            'coreCss' => false, //use css themes
             'responsiveCss' => true,
         ),
         'user' => array(

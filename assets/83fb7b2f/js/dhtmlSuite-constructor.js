@@ -1,1 +1,0 @@
-DHTMLSuite.include('calendar');
