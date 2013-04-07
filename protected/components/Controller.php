@@ -25,7 +25,7 @@ class Controller extends CController
 	public function init()
         {
                 if (Yii::app()->user->isGuest) {
-                        Yii::app()->theme = 'classic';
+                        Yii::app()->theme = 'andia';
                 } else {
                         Yii::app()->theme = 'bootstrap-admin';
                 }

@@ -21,7 +21,7 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'YiiBoost Test',
-    'theme' => 'bootstrap-admin',
+    'theme' => 'andia',
     'sourceLanguage' => 'en',
     'language' => 'en',
     // preloading 'log' component
@@ -109,5 +109,6 @@ return array(
             'portable_hashes'=>false,
           ),
         'debugContent'=>'',
+        'nameCompany' => 'This is the name of the company'
     ),
 );

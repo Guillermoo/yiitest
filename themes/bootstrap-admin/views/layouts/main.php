@@ -36,10 +36,10 @@
                         array(
                             'class' => 'bootstrap.widgets.BootMenu',
                             'items' => array(
-                                array('label' => 'Home', 'url' => array('/site/index')),
-                                array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
+                                /*array('label' => 'Home', 'url' => array('/site/index')),*/
+                                /*array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),*/
                                 array('label' => 'Admin blog', 'url' => array('/site/adminBlog')),
-                                array('label' => 'Contact', 'url' => array('/site/contact')),
+                                /*array('label' => 'Contact', 'url' => array('/site/contact')),*/
                             ),
                         ),
                         array(
