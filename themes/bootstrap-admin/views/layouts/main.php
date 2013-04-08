@@ -16,6 +16,12 @@
         <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-responsive.min.css">
 
     </head>
+
+    <?php $baseUrl = Yii::app()->theme->baseUrl; 
+          $cs = Yii::app()->getClientScript();
+          //$cs->registerScriptFile($baseUrl.'/js/yourscript.js');
+          $cs->registerCssFile($baseUrl.'/css/bootstrap.min.css');
+    ?>
     <!-- To show debug info -->
     <?php if(!empty(Yii::app()->params['debugContent'])):?>
                     <?php echo Yii::app()->params['debugContent'];?>

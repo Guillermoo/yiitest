@@ -76,7 +76,7 @@ strong { font-weight: bold; }
     text-shadow: none;
 }
 
-.header ul.nav li#current-page a {
+.header ul.nav li.current-page a {
     padding-top: 25px;
     border-top: 5px solid #9d426b;
     background: #f8f8f8;
@@ -407,7 +407,7 @@ strong { font-weight: bold; }
 }
 
 .testimonial-list .nav-tabs li a:hover { border: 0; background: #ddd; }
-.testimonial-list .nav-tabs li#current-page a { background: #9d426b; }
+.testimonial-list .nav-tabs li.current-page a { background: #9d426b; }
 
 
 /* ----- Footer ----- */
@@ -1017,7 +1017,7 @@ ul.portfolio-img li {
         border-radius: 0;
     }
 
-    .header ul.nav li#current-page a {
+    .header ul.nav li.current-page a {
         padding-top: 15px;
     }
 
@@ -1072,7 +1072,7 @@ ul.portfolio-img li {
         border-radius: 0;
     }
 
-    .header ul.nav li#current-page a {
+    .header ul.nav li.current-page a {
         padding-top: 15px;
     }
 

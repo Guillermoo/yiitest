@@ -1,5 +1,5 @@
 
-
+Index Default
 <!-- Slider -->
 <div class="slider">
     <div class="container">

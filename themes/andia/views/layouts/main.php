@@ -62,7 +62,7 @@
                                 <span class="icon-bar"></span>
                             </a>
                             <h1>
-                                <a class="brand" href="index.html"><?php echo CHtml::encode($this->pageTitle); ?></a>
+                                <a class="brand" href="index"><?php echo CHtml::encode($this->pageTitle); ?></a>
                             </h1>
                             <div class="nav-collapse collapse">
                                 <?php
@@ -78,7 +78,7 @@
                                         // 'Products' menu item will be selected no matter which tag parameter value is since it's not specified.
                                         array('label'=>'<i class="icon-tasks"></i><br/>Productos', 'url'=>array('product/index')),
                                         array('label'=>'<i class="icon-umbrella"></i><br/>Blog', 'url'=>array('post/index')),
-                                        array('label'=>'<i class="icon-user"></i><br/>About', 'url'=>array('site/about')),
+                                        array('label'=>'<i class="icon-user"></i><br/>About', 'url'=>array('site/page', 'view' => 'about')),
                                         array('label'=>'<i class="icon-lock"></i><br/>Login', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
                                     ),
                                 ));

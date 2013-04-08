@@ -80,6 +80,15 @@ return array(
             'charset' => 'utf8',
             //'enableProfiling'=>true, //To show SQL query
         ),
+
+        'widgetFactory'=>array(
+          'widgets'=>array(
+            'BootButtonColumn'=>array(
+              //'cssFile' => 'application.css.css.style-gridview.css',
+              'cssFile' => '', 
+            ),
+          ),
+        ),
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',
@@ -92,9 +101,9 @@ return array(
                     'levels' => 'error, warning',
                 ),
                 // uncomment the following to show log messages on web pages
-                array(
+                /*array(
                     'class'=>'CWebLogRoute',
-                ),
+                ),*/
              
             ),
         ),

@@ -56,9 +56,9 @@ class PostController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+			$this->render('view',array(
+				'model'=>$this->loadModel($id),
+			));	
 	}
 
 	/**
@@ -106,10 +106,10 @@ class PostController extends Controller
 			$model->attributes=$_POST['Post'];
 			if($model->save()){
 				//Yii::app()->setFlash('successs','Todo bien');
-				Yii::app()->post->setFlash('successs', '<strong>Well done!</strong> You successfully read this important alert message.');
+				//Yii::app()->post->setFlash('successs', '<strong>Well done!</strong> You successfully read this important alert message.');
 				$this->redirect(array('view','id'=>$model->id));
 			}
-				Yii::app()->post->setFlash('error', '<strong>Oh snap!</strong> Change a few things up and try submitting again.');
+				//Yii::app()->post->setFlash('error', '<strong>Oh snap!</strong> Change a few things up and try submitting again.');
 		}
 
 		$this->render('update',array(
@@ -143,9 +143,9 @@ class PostController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Post');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+			$this->render('index',array(
+				'dataProvider'=>$dataProvider,
+			));	
 	}
 
 	/**
