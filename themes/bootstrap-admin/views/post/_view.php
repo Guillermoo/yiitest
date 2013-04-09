@@ -23,7 +23,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode('Update status'); ?></b>
-	<?php echo CHtml::link($data->status==1?'Desactivate':'Activate',array('change','id'=>$data->id)); ?>
+	<?php echo CHtml::link(Post::getStatusOptions($data->status),array('change','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('author_id')); ?>:</b>
@@ -38,7 +38,7 @@
 	<?php echo CHtml::encode($data->update_time); ?>
 	<br />
 
-	<?php $this->Debug(Post::getStatusOptions($data->status)); ?>
+	<?php //$this->Debug(Post::getStatusOptions($data->status)); ?>
 	
 
 </div>

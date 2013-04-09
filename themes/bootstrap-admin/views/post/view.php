@@ -31,7 +31,7 @@ $this->menu=array(
 			),
 		array('label'=>'Update Status',
 			'type'=>'raw',
-			'value'=>CHtml::link($model->status==1?'Desactivate':'Activate',
+			'value'=>CHtml::link(Post::getStatusOptions($model->status),
                  array('change','id'=>$model->id)),
 			),
 		'author.username',

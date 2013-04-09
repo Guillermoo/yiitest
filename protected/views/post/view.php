@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
 ?>
 
 <h1>View Post #<?php echo $model->id; ?></h1>
-Gui branch
+
 <?php $this->widget('bootstrap.widgets.BootDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(

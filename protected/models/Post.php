@@ -28,20 +28,6 @@ class Post extends CActiveRecord
 
 	public static $status=array('0'=>'Desactivate','1'=>'Activate');
 
-
-
-	public function actions()
-	{
-		return array(
-			'change'=>array(
-				'class'=>'ext.actions.StatusAction',
-				'model'=>'Posts',
-				//'field'=>'status',
-				'redirect'=>'admin',
-			),
-		);
-	}
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

@@ -8,18 +8,18 @@
 
 		function run(){
 
-			if(empty(($_GET['id'])))
+			if(empty($_GET['id']))
 				throw new CHttpException(404);
 
 //			$model= Posts::model()->findByPk($_GET['id']);
-			$model= CActiveRecord::model($this->model)->findByPk($_GET['id']);
+			$data= CActiveRecord::model($this->model)->findByPk($_GET['id']);
 
-			if($model===null)
+			if($data===null)
 				throw new CHttpException(404);
-			$model->{$this->field}=$model->{$this->field}==1?0:1; 
+			$data->{$this->field}=$data->{$this->field}==1?0:1; 
 
 			//$model->status=0;
-			if($model->update())
+			if($data->update())
 				$this->controller->redirect(array($this->redirect));
 
 			throw new CHttpException(500);
