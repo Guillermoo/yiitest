@@ -39,6 +39,7 @@ class UserController extends Controller
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
+				//'roles'=>array('edit_rol'), //To see the example change allow for deny
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
@@ -74,12 +75,13 @@ class UserController extends Controller
 		$model=new User;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save())
+				//In User -> beforeSave create the password
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -98,7 +100,7 @@ class UserController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['User']))
 		{
@@ -138,6 +140,33 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
+
+		/*Auth example, creating roles*/
+		/*  
+		$auth=Yii::app()->authManager; 
+		$auth->createOperation('edit_user','This operation is for edit');//Not duplicates
+		$task=$auth->createTask('edit_task','This task is for edit');//Not duplicates
+		$task->addChild('edit_user');
+
+		$role= $auth->createRole('edit_rol','This rol if for edit');
+		$role->addChild('edit_task');*/
+
+		/*
+			rol   edit_rol
+				-task edit_task
+					-operation edit_user
+		*/
+
+		//$auth->assign('edit_rol',Yii::app()->user->id);
+		/* End auth example*/
+
+		if(Yii::app()->authManager->checkAccess('edit_task',Yii::app()->user->id))
+		{
+			echo 'ACCESOOOO'; //edit_task have access
+		}else{
+			echo 'NO ACCESOOOO'; //
+		}	
+
 		$dataProvider=new CActiveDataProvider('User');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

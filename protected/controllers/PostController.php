@@ -32,13 +32,13 @@ class PostController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'MyFilter + edit, create',
+			/*'MyFilter + edit, create',
 			array(
-				'ext.filters.MyFilter - edit, create'
+				'ext.filters.MyFilter - edit, create',
 				'parameter1'=>'value', //Like actions
 				'parameter2'=>'value',
 				'parameter3'=>'value',
-				)
+				),*/
 		);
 	}
 
@@ -60,15 +60,15 @@ class PostController extends Controller
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view','change'),
 				'users'=>array('*'),
-				//'roles'=>('admin'), //Not yet
 				//'controllers'=>('users'), 
 				//'ip'=>array('111.222.333') //Task in the server, cron.
+				//'roles'=>array('edit_rol'),
 				//'verbs'=>array('GET','POST'),
 				//'expression'=>'$user->id==2',
 			),
-			array('deny',
+			/*array('deny',
 				'controllers'=>array('users'), 
-			),
+			),*/
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
 				'users'=>array('@'),

@@ -58,6 +58,10 @@ return array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,
         ),
+        'authManager'=>array(
+                'class'=>'CDbAuthManager',
+                'connectionID'=>'db',
+        ),
         'urlManager' => array(
             'urlFormat' => 'path',
             'showScriptName' => false,
