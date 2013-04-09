@@ -18,6 +18,16 @@ class UserController extends Controller
 		);
 	}
 
+
+	public function actions(){
+
+		return array(
+			'state'=>array(
+				'class'=>'ext.actions.StateAction'
+			),
+		);
+	}
+
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.

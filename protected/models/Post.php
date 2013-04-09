@@ -24,7 +24,23 @@ class Post extends CActiveRecord
 	//const STATUS_YES = '1';
 	//const STATUS_NO = '0';
 	public $user_search;
-	public static $status=array('0'=>'No Active','1'=>'Active');
+	public $update_status;
+
+	public static $status=array('0'=>'Desactivate','1'=>'Activate');
+
+
+
+	public function actions()
+	{
+		return array(
+			'change'=>array(
+				'class'=>'ext.actions.StatusAction',
+				'model'=>'Posts',
+				//'field'=>'status',
+				'redirect'=>'admin',
+			),
+		);
+	}
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -103,6 +119,7 @@ class Post extends CActiveRecord
 			'content' => 'Content',
 			'tags' => 'Tags',
 			'status' => 'Status',
+			'update_status' => 'Update status',
 			'author_id' => 'Author',
 			'create_time' => 'Create Time',
 			'update_time' => 'Update Time',

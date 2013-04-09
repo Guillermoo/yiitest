@@ -1,10 +1,11 @@
 <?php
-/*$this->breadcrumbs=array(
+$this->breadcrumbs=array(
 	'Posts'=>array('index'),
 	'Manage',
-);*/
+);
 
 $this->menu=array(
+	array('label' => 'Operations'),
 	array('label'=>'List Post','url'=>array('index')),
 	array('label'=>'Create Post','url'=>array('create')),
 );

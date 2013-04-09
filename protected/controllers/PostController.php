@@ -242,8 +242,6 @@ class PostController extends Controller
 		}
 	}
 
-	
-
 	/* Used to debug variables*/
     protected function Debug($var){
         $bt = debug_backtrace();

@@ -24,7 +24,7 @@
     ?>
     <!-- To show debug info -->
     <?php if(!empty(Yii::app()->params['debugContent'])):?>
-                    <?php echo Yii::app()->params['debugContent'];?>
+        <?php echo Yii::app()->params['debugContent'];?>
     <?php endif;?>
 
     <body>
@@ -47,7 +47,8 @@
                                 /*array('label' => 'Home', 'url' => array('/site/index')),*/
                                 /*array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),*/
                                 array('label' => 'Admin blog', 'url' => array('/site/adminBlog')),
-                                /*array('label' => 'Contact', 'url' => array('/site/contact')),*/
+                                array('label' => 'Users', 'url' => array('/user/admin')),
+                                array('label' => 'Posts', 'url' => array('/post/admin')),
                             ),
                         ),
                         array(

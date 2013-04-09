@@ -1,5 +1,5 @@
 <div class="view">
-	_View default
+	_View bootStrap
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
 	<br />
@@ -18,7 +18,8 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
 	<?php //echo CHtml::encode($data->status); ?>
-	<?php echo CHtml::encode($data->status=='Post::getStatusOptions($data->status)')	; ?>
+	<?php echo CHtml::encode(Post::getStatusOptions($data->status))	; ?>
+	<?php //echo CHtml::encode($data->status==1?'Desactivate':'Activate')	; ?>
 	<br />
 
 	<b><?php echo CHtml::encode('Update status'); ?></b>
@@ -37,7 +38,7 @@
 	<?php echo CHtml::encode($data->update_time); ?>
 	<br />
 
-	<?php //$this->Debug($data); ?>
+	<?php $this->Debug(Post::getStatusOptions($data->status)); ?>
 	
 
 </div>
