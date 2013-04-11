@@ -1,4 +1,5 @@
 <div class="view">
+
 	_View bootStrap
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
@@ -18,13 +19,43 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
 	<?php //echo CHtml::encode($data->status); ?>
-	<?php echo CHtml::encode(Post::getStatusOptions($data->status))	; ?>
+	<div><?php echo CHtml::encode(Post::getStatusOptions($data->status)); ?></div>
 	<?php //echo CHtml::encode($data->status==1?'Desactivate':'Activate')	; ?>
 	<br />
 
+	<div id="data_<?=$data->id ?>"><!---->
+	   	<?php $this->renderPartial('_ajaxContent', array('myValue'=>Post::getStatusOptions(Yii::app()->params['myValue']))); ?>
+	</div>
+
 	<b><?php echo CHtml::encode('Update status'); ?></b>
-	<?php echo CHtml::link(Post::getStatusOptions($data->status),array('change','id'=>$data->id)); ?>
-	<br />
+	<?php //echo CHtml::link(Post::getStatusOptions($data->status),array('change','id'=>$data->id)); ?>
+	<?php //echo CHtml::link(CHtml::image(Yii::app()->theme->baseUrl."/img/update.png",'Update status',array('style'=>'max_width:25px')),array('change','id'=>$data->id),array('confirm'=>'Are you sure?')); ?>
+	<?php echo CHtml::link(
+		CHtml::image(Yii::app()->theme->baseUrl."/img/update.png",'Update status',array('style'=>'max_width:25px')),
+		//array('post/UpdateAjax'),
+		'',
+		array(
+			'ajax'=>array(
+				/* GET'url',array('post/index','id'=>$data->id),
+				'url'=>$this->createUrl("post/index",array('idget'=>$data->id)), */
+				/* AJAX*/
+				'type'=>'post', 
+				'dataType'=>'html',
+				'data'=>array('id'=>$data->id,'status'=>$data->status),
+				'update'=>"#data_$data->id"	 //jquery 
+				//'success'=>'alert("GOOD!!!")',
+				),
+			)); ?>
+
+	
+		<!--  POST PARAMS ->
+		<?php /*echo CHtml::link('Post params',null,array(
+			'submit'=>array('post/view','title'=>$data->title),
+			'params'=>array('id',$data->id),
+			//'cofirm'=>'Sure?',
+			)); */?>
+		<br />-->
+	<br>
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('author_id')); ?>:</b>
 	<?php echo CHtml::encode($data->author->username); ?>

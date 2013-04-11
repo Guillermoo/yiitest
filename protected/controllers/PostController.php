@@ -58,11 +58,11 @@ class PostController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','change'),
+				'actions'=>array('index','view','change','UpdateAjax'),
 				'users'=>array('*'),
 				//'controllers'=>('users'), 
 				//'ip'=>array('111.222.333') //Task in the server, cron.
-				//'roles'=>array('edit_rol'),
+				//'roles'=>array('edit_rol'), //We can also put task 
 				//'verbs'=>array('GET','POST'),
 				//'expression'=>'$user->id==2',
 			),
@@ -89,10 +89,29 @@ class PostController extends Controller
 	 */
 	public function actionView($id)
 	{
+			
+
 			$this->render('view',array(
 				'model'=>$this->loadModel($id),
-			));	
+			));
+
+			/* SLUG**/
+			/*$this->render('view',array(
+		        'model'=>$this->loadModelSlug($slug),
+		    ));*/
 	}
+
+
+	/* --------- SLUG ---------*/
+	/*public function loadModelSlug($slug)
+	{
+	    $model = Product::model()->findByAttributes(array('slug'=>$slug));
+	    if($model===null)
+	        throw new CHttpException(404,'The requested page does not exist.');
+	    return $model;
+	}*/
+	/* --------- END SLUG ---------*/
+	
 
 	/**
 	 * Creates a new model.
@@ -175,10 +194,60 @@ class PostController extends Controller
 	 */
 	public function actionIndex()
 	{
+
+
+		/* ---- LOG ----- */
+		/*Yii::log('Log info','info','application.controllers.SiteController');
+		Yii::log('warning info','warning','application.controllers.SiteController');
+		Yii::log('error info','error','application.controllers.SiteController');
+		Yii::log('trace info','trace','application.controllers.SiteController');
+		Yii::log('profile info','profile','application.controllers.SiteController');*/
+		/* ---- END LOG ----- */
+
+
+		/* ---- CACHE ----- */
+		/*if ($value = Yii::app()->cache->get("firstCache") === false){
+			$value=array('My first value','second value');
+			Yii::app()->cache->set("firstCache",$value,10);	
+			/* ---- SEE DEPENDENCIES!!!!! ----*/
+			//Yii::app()->cache->set("firstCache",$value,3600*24,new CDbCacheDependency('SELECT COUNT(*) FROM test'));	<- Save when COUNT(*) change or after one day.
+		/*}
+		var_dump($value);*/
+		/* ---- END CACHE ----- */
+
+		/*AJAX**/
+		if (Yii::app()->request->isAjaxRequest)
+		{
+			$status = $_POST['status'];
+			$id = $_POST['id'];
+
+			echo $id;
+
+			if ($status == 1)
+				$status = 0;
+			else
+				$status = 1;
+
+			$model = $this->loadModel($id);
+			//$model->state = !$status;
+
+			//if($model->save()){
+				$data["myValue"] = Post::model()->getStatusOptions($status);
+				Yii::app()->params['myValue'] = $status;
+	        	$this->renderPartial('_ajaxContent', $data, false, true);
+				Yii::app()->end();
+			//}else{
+			//	$this->renderPartial('_ajaxContent', 'There was an error', false, true);
+			//}	
+		}
+		/* END AJAX*/
+		Yii::app()->params['myValue'] = '';
+
 		$dataProvider=new CActiveDataProvider('Post');
-			$this->render('index',array(
-				'dataProvider'=>$dataProvider,
-			));	
+
+		$this->render('index',array(
+				'dataProvider'=>$dataProvider
+		));	
 	}
 
 	/**

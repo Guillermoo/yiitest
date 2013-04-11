@@ -26,7 +26,7 @@ class Post extends CActiveRecord
 	public $user_search;
 	public $update_status;
 
-	public static $status=array('0'=>'Desactivate','1'=>'Activate');
+	public static $status=array('0'=>'Desactivate','1'=>'Activate',''=>'');
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -45,6 +45,18 @@ class Post extends CActiveRecord
 	{
 		return 'tbl_post';
 	}
+
+	/*public static function getUrl()
+    {
+        //$controller=get_class($this);
+        //$controller[0]=strtolower($controller[0]);
+        $params=array('id'=>$this->id);
+        // add the title parameter to the URL
+        if($this->hasAttribute('title'))
+            $params['title']=$this->title;
+        return Yii::app()->urlManager->createUrl($controller.'/view', $params);
+    }*/
+
 
 	/**
 	 * @return array validation rules for model attributes.

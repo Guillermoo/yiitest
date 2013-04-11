@@ -6,7 +6,7 @@
 		public $redirect='index';
 		public $field='status';
 
-		function run(){
+		/*function run(){
 
 			if(empty($_GET['id']))
 				throw new CHttpException(404);
@@ -23,6 +23,23 @@
 				$this->controller->redirect(array($this->redirect));
 
 			throw new CHttpException(500);
+			
+		}*/
+
+		function run(){
+
+			/*AJAX**/
+			if (Yii::app()->request->isAjaxRequest)
+				{
+				/*	echo CJSON::encode($_GET);*/
+					//echo CJSON::encode($_POST);
+					$data = array();
+			        $data["myValue"] = "Content updated in AJAX";
+			 
+			        $this->renderPartial('_ajaxContent', $data, false, true);
+					//Yii::app()->end();
+				}
+			/* END AJAX*/
 			
 		}
 

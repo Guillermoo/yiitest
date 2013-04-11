@@ -15,8 +15,10 @@ $this->menu=array(
 ?>
 
 
-<h1>View Post admin!!!#<?php echo $model->id; ?></h1>
-
+<h1>View Post admin boot!!!#<?php echo $model->id; ?></h1>
+ <?php //echo Post::getUrl() ?>
+	
+ <?php echo CHtml::link('Link to view',array('post/view','title'=>$model->title),array('style'=>'color:#ADC')) ?>
 <?php $this->widget('bootstrap.widgets.BootDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(

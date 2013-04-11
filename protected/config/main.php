@@ -68,6 +68,9 @@ return array(
             //'urlSuffix'=>'.html', To change the extension
             'rules' => array(
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/' => '<controller>/index',
+                '<controller:\w+>/<action>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/<title>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
@@ -102,15 +105,36 @@ return array(
             'routes' => array(
                 array(
                     'class' => 'CFileLogRoute',
-                    'levels' => 'error, warning',
                 ),
                 // uncomment the following to show log messages on web pages
-                /*array(
+                array(
                     'class'=>'CWebLogRoute',
+                    'enabled'=>false,
+                    'filter' => 'CLogFilter',
+                    'levels' => 'error, warning, info,trace,profile',
+                    'categories'=>'system.*,application.*',
+                ),
+
+                // Save log in DB
+                /*array(
+                    'class'=>'CDbLogRoute',
                 ),*/
+                // Send log to email
+                /*array(
+                    'class'=>'CEmailLogRoute',
+                ),*/
+                // Personlized profile
+                /*array(
+                    'class'=>'CProfileLogRoute',
+                ),*/
+
              
             ),
         ),
+        'cache'=>array(
+                'class'=>'CFileCache',
+
+            ),
     ),
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
